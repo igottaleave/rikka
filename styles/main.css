@@ -1,9 +1,14 @@
 body {
   overflow: hidden;
-  text-align: center;
   background-color: #111;
   font-family: 'Open Sans Condensed', sans-serif;
   padding-top: 12%;
+}
+#content {
+    text-align: center;
+    max-width: 240px;
+    max-height: 200px;
+    margin: 0 auto;
 }
 #round {
     border-radius: 50%;
