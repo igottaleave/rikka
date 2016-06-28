@@ -1,0 +1,26 @@
+{
+  "name": "rikka",
+  "version": "0.0.0",
+  "description": "Gulp Recipe - Jade, Sass, Livereload and static server",
+  "main": "gulpfile.js",
+  "private": true,
+  "scripts": {},
+  "author": "Chris Kjaer",
+  "license": "ISC",
+  "devDependencies": {
+    "connect-livereload": "^0.5.4",
+    "express": "~3.4.8",
+    "gulp": "^3.9.1",
+    "gulp-concat": "~2.1.7",
+    "gulp-jade": "~0.3.0",
+    "gulp-livereload": "~0.2.0",
+    "gulp-stylus": "0.0.11",
+    "gulp-uglify": "~0.1.0",
+    "gulp-util": "~2.2.12",
+    "marked": "~0.3.0",
+    "tiny-lr": "0.0.5"
+  },
+  "dependencies": {
+    "gulp": "^3.5.6"
+  }
+}
