@@ -4,7 +4,7 @@ Example: https://igottaleave.github.io/rikka/
 
 ## Build
 ```
-jade < index.jade > index.html
+pug -P index.pug index.html
 ```
 ## Dev
 ```

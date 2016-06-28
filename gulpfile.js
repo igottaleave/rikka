@@ -1,45 +1,50 @@
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	uglify = require('gulp-uglify'),
-	jade = require('gulp-jade'),
+	pug = require('gulp-pug'),
 	concat = require('gulp-concat'),
 	livereload = require('gulp-livereload'),
-	tinylr = require('tiny-lr'),
 	express = require('express'),
 	app = express(),
-	marked = require('marked'), // For :markdown filter in jade
-	path = require('path'),
-	server = tinylr();
+	// marked = require('marked'), // For :markdown filter in pug
+	path = require('path');
 
+livereload({ start: true });
 
 gulp.task('css', function () {
 	return gulp.src('styles/*.css')
-		.pipe(uglify())
 		.pipe(concat('main.css'))
 		.pipe(gulp.dest('dist/styles/'))
-		.pipe(livereload(server));
+		.pipe(livereload());
 });
 
 gulp.task('js', function () {
 	return gulp.src('js/*.js')
-		// .pipe(uglify())
+		.pipe(uglify())
 		// .pipe(concat('all.min.js'))
 		.pipe(gulp.dest('dist/js/'))
-		.pipe(livereload(server));
+		.pipe(livereload());
 });
 
 gulp.task('templates', function () {
-	return gulp.src('*.jade')
-		.pipe(jade({pretty: true}))
+	return gulp.src('*.pug')
+		.pipe(pug({pretty: true}))
 		.pipe(gulp.dest('dist/'))
-		.pipe(livereload(server));
+		.pipe(livereload());
 });
 
 gulp.task('images', function () {
 	return gulp.src('*.png')
 		.pipe(gulp.dest('dist/'))
-		.pipe(livereload(server));
+		.pipe(livereload());
 });
+
+gulp.task('svg', function () {
+	return gulp.src('svg/*.svg')
+		.pipe(gulp.dest('dist/svg/'))
+		.pipe(livereload());
+});
+
 
 gulp.task('express', function () {
 	app.use(require('connect-livereload')());
@@ -49,18 +54,16 @@ gulp.task('express', function () {
 });
 
 gulp.task('watch', function () {
-	server.listen(35729, function (err) {
-		if (err) return console.log(err);
-	});
 	gulp.watch('styles/*.styl', ['css']);
 
 	gulp.watch('js/*.js', ['js']);
 
 	gulp.watch('styles/*.css', ['css']);
 
-	gulp.watch('*.jade', ['templates']);
-
+	gulp.watch('*.pug', ['templates']);
+	
+	gulp.watch('svg/*.svg', ['svg']);
 });
 
 // Default Task
-gulp.task('default', ['js', 'css', 'templates', 'express', 'images', 'watch']);
+gulp.task('default', ['js', 'css', 'templates', 'express', 'images', 'svg', 'watch']);

@@ -1,0 +1,29 @@
+doctype html
+html
+    // rikka baka! Ban please.
+    head
+        title Welcome, Senpai!
+        meta(name='viewport', content='width=device-width')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
+        link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet')
+        link(href='styles/main.css', rel='stylesheet')
+        script(src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    body
+        #particles-js.zoomIn.animated
+        script(src='js/particles-conf.js')
+        script(src="js/pentagon-conf.js")
+        #content.flipInX.animated
+            img#round(src='avatar.png')
+            #name
+                | Hinazuki Kayo
+            nav.fa
+                a.fa-vk(href='https://vk.com/id350565584')
+                a.fa-steam(href='http://steamcommunity.com/id/RENAKANAKANA')
+                a.fa-list-ul(href='http://myanimelist.net/animelist/rikka0612')
+                a.fa-paper-plane(href='https://telegram.me/topwaifu')
+                a.fa-lastfm(href='http://www.lastfm.ru/user/topwaifu')
+                a.fa-instagram(href='https://instagram.com/topwaifu/')
+        #chart
+        script(src="https://d3js.org/d3.v3.min.js", charset="utf-8")
+        script(src="js/RadarChart.js")
